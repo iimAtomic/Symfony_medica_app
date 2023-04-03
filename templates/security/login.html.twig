@@ -14,7 +14,7 @@
         </div>
     {% endif %}
 
-    <h1 class="title">Veuillez vous connectez</h1>
+    <h2 class="title">Veuillez vous connectez avec les identifiants que vous avez recu</h2>
     <label for="inputUsername" class="inputName">Email</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="formControl" autocomplete="username" required autofocus>
     <label for="inputPassword" class="inputName">Mots de passe</label>
@@ -29,8 +29,9 @@
 
 
     <style>
-        h1{
+        h2{
             font-family: "Trebuchet MS", serif;
+            margin-left: 58px;
         }
 
         .inputName{

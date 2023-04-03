@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Admin;
 use App\Entity\Category;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -49,7 +50,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Actions', 'fas fa-bar')->setSubItems([
             MenuItem::linkToCrud('Create Category', 'fas fa-plus-circle', Category::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Show Category', 'fas fa-eye', Category::class),]);
-
 
 
     }}
