@@ -1,5 +1,7 @@
 # Symfony_medica_app
 
+Réalisateur : VEGBA Lux
+
 Il s'agit d'un projet de boutique privée, le *Lux E-SHOP*. Les utilisateurs doivent se connecter pour y accéder.
 Les technologies utilisées sont : Symfony, MySQL et PHP.
 Le front est fait en HTML, CSS et Twig.
