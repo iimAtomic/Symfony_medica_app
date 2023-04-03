@@ -4,6 +4,7 @@ Réalisateur : VEGBA Lux
 
 Il s'agit d'un projet de boutique privée, le *Lux E-SHOP*. Les utilisateurs doivent se connecter pour y accéder.
 Les technologies utilisées sont : Symfony, MySQL et PHP.
+Easy admin pour la mise en place du dashboard admin
 Le front est fait en HTML, CSS et Twig.
 
 L'admin a directement accès à une interface lui permettant de gérer l'ajout, la suppression et la modification des produits présentés sur le front. Il peut aussi creer les comptes des utilisateurs car c'est une boutique privé.
