@@ -27,7 +27,7 @@ class ProductCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
-            MoneyField::new('price'),
+            MoneyField::new('price')->setCurrency('EUR'),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(), // Champ de fichier d'image pour l'upload avec VichUploader
             ImageField::new('image')->setBasePath('/images/products')->onlyOnIndex(),
             DateTimeField::new('dateCreation'),

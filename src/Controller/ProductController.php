@@ -19,7 +19,7 @@ class ProductController extends AbstractController
         //recuperation du premier produit
         $firtProduct = $productRepository->findOneBy([], ['dateCreation' => 'ASC']);
         //recuperation des 4 produits suivants
-        $fourProduct = $productRepository->findBy([], ['dateCreation' => 'DESC'], 4, 1);
+        $fourProduct = $productRepository->findBy([], ['dateCreation' => 'DESC'], 4);
         //recuperation du reste des produits
         $products = $productRepository->findBy([], ['dateCreation' => 'DESC']);
         $products = array_slice($products, 5);
