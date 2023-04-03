@@ -21,23 +21,22 @@ class ProductCrudController extends AbstractCrudController
         return Product::class;
     }
 
-
+    // Configuration des champs de formulaire à afficher
     public function configureFields(string $pageName): iterable
     {
-     return [
+        return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             MoneyField::new('price'),
-            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(), // Champ de fichier d'image pour l'upload avec VichUploader
             ImageField::new('image')->setBasePath('/images/products')->onlyOnIndex(),
             DateTimeField::new('dateCreation'),
             DateTimeField::new('dateModification'),
-            AssociationField::new('category'),
-
-
+            AssociationField::new('category'), // Champ d'association à une catégorie
         ];
     }
 
+   //Comportement a suivre lors de la création d'un produit
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         if (!$entityInstance instanceof Product) return;
@@ -47,12 +46,12 @@ class ProductCrudController extends AbstractCrudController
         parent::persistEntity($entityManager, $entityInstance);
     }
 
+    //  lors de la modification d'un produit
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance):void
     {
         if (!$entityInstance instanceof Product) return;
 
         $entityInstance->setDateModification(new \DateTimeImmutable());
-
 
         parent::persistEntity($entityManager, $entityInstance);
     }

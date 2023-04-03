@@ -28,6 +28,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
         $this->authorizationChecker = $authorizationChecker;
     }
 
+    // function pour gerer l'authentification des identifiants
     public function authenticate(Request $request): Passport
     {
         $username = $request->request->get('username', '');
@@ -45,11 +46,12 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        // Rediriger vers la page d'administration si l'utilisateur est un admin
         if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate('admin'));
         }
 
-        // Rediriger vers la page d'administration si l'utilisateur a un autre rôle
+        // Rediriger vers la page home si l'utilisateur est un user normal
         return new RedirectResponse($this->urlGenerator->generate('app_product'));
     }
 

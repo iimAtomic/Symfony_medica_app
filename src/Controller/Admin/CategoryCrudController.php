@@ -17,7 +17,7 @@ class CategoryCrudController extends AbstractCrudController
         return Category::class;
     }
 
-
+    // Configuration des champs de formulaire à afficher
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -28,6 +28,7 @@ class CategoryCrudController extends AbstractCrudController
         ];
     }
 
+    //Comportement a suivre lors de la création d'un produit
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         if (!$entityInstance instanceof Category) return;
@@ -36,6 +37,7 @@ class CategoryCrudController extends AbstractCrudController
 
         parent::persistEntity($entityManager, $entityInstance);
     }
+    //Comportement a suivre lors de la modif d'un produit
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance):void
     {

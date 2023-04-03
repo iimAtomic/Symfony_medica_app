@@ -16,7 +16,7 @@ class ProductController extends AbstractController
                             PaginatorInterface $paginator,
                             request $request): Response
     {
-        //recuperation du pemier produit
+        //recuperation du premier produit
         $firtProduct = $productRepository->findOneBy([], ['dateCreation' => 'ASC']);
         //recuperation des 4 produits suivants
         $fourProduct = $productRepository->findBy([], ['dateCreation' => 'DESC'], 4, 1);

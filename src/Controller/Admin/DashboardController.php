@@ -20,6 +20,7 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        //genration d'url vers la page d'administration
         $url = $this->adminUrlGenerator->
         setController(ProductCrudController::class)->generateUrl();
 
@@ -28,10 +29,13 @@ class DashboardController extends AbstractDashboardController
     }
     public function configureDashboard(): Dashboard
     {
+        // les infos concernant le dashboard :)
         return Dashboard::new()
             ->setTitle('<h2 class="mt-3 fw-bold text-white text-center">LUX ESHOP</h2>')
             ->renderContentMaximized();
     }
+
+    // les champs à afficher pour permettre d'administrer le site
 
     public function configureMenuItems(): iterable
     {   yield MenuItem::linkToRoute('Retour au Site' ,'fa fa-reply ' ,'app_product');
