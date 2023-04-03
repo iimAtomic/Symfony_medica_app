@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <h1 class="title">Veuillez vous connectez</h1>
+    <label for="inputUsername" class="inputName">Username</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="formControl" autocomplete="username" required autofocus>
+    <label for="inputPassword" class="inputName">Password</label>
+    <input type="password" name="password" id="inputPassword" class="formControl" autocomplete="current-password" required>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+    <button id="submit" type="submit">Connection</button>
+
+
+    </form>
+
+
+    <style>
+
+        #submit{
+            width: 150px;
+            margin-top: 30px;
+            border-radius: 18px;
+            background-color: #7793ec;
+        }
+
+        .formControl{
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        form {
+            width: 500px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(225, 223, 223, 0.5);
+            border-radius: 30px; margin-top: 200px;
+        }
+
+         body{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             background-image: url("{{ asset('images/background3.jpg') }}");
+             background-size: cover;
+
+
+
+         }
+
+    </style>
+
+{% endblock %}
