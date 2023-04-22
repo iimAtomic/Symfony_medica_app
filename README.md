@@ -23,8 +23,10 @@ Il peut également se déconnecter à tout moment.
       Mdp : simpleUser
 
 Pour deployer l'application il sera peut etre nécessaire ce faire un **composer install** 
-Il faudra aussi probalement lancer un database create :  php bin/console doctrine:database:create
-une migration  migrate : php bin/console doctrine:migrations:migrate
+Il faudra aussi probalement lancer : 
+
+      un database create : php bin/console doctrine:database:create
+      une migration  migrate : php bin/console doctrine:migrations:migrate
 
 Merci ! 😤
 
